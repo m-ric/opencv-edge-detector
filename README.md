@@ -3,7 +3,7 @@
 An edge detection python program with OpenCV. Originally developed with
 python-2.7.3 and python-opencv-2.3.1-7.
 
-## howto
+## Howto
 
 Two windows shall open at program execution. One with a preview of your
 primary webcam, the other with a Canny edge detection applied on a grayscaled
