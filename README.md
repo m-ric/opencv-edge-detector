@@ -10,5 +10,7 @@ primary webcam, the other with a Canny edge detection applied on a grayscaled
 version of the preview.
 
 * adjust canny main parameters with the two trackbars provided
-* **Press 's'** to stop capturing the webcam image and still the image
+* **Press 's'** to capture current webcam image and still the preview
+* **Press 'f'** to detect face and eyes, and show highlight Regions Of Interest
+  in a third window
 * **Press 'ESC'** to close the windows and exit the program
