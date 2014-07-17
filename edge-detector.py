@@ -113,8 +113,8 @@ else:
 
 # separate cam preview and edges in different threads
 try:
-    thread.start_new_thread(detect_edges, (rval,))
     thread.start_new_thread(cam_preview, (rval,))
+    thread.start_new_thread(detect_edges, (rval,))
 except Exception as errtxt:
     print "error: unable to start thread,", errtxt
 
