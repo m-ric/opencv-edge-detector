@@ -70,24 +70,25 @@ def detect_face(rval):
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-    grayframe = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    _frame = frame.copy()
+    grayframe = cv2.cvtColor(_frame, cv2.COLOR_BGR2GRAY)
 
     faces = face_cascade.detectMultiScale(grayframe, scaleFactor=1.1,
                                           minNeighbors=4, minSize=(50,50),
                                           flags=cv2.CASCADE_SCALE_IMAGE)
-    cv2.imshow('Face-eyes', grayframe)
-    print "len(faces):", len(faces)
+    print "#faces:", len(faces)
 
     for (x,y,w,h) in faces:
-        print "face detected!"
-        cv2.rectangle(grayframe,(x,y),(x+w,y+h),(255,0,0),2)
-        cv2.imshow('Face-eyes', grayframe)
+        cv2.rectangle(_frame,(x,y),(x+w,y+h),(0,255,0),2)
+        #cv2.imshow('Face-eyes', _frame)
         roi_gray = grayframe[y:y+h, x:x+w]
-        roi_color = grayframe[y:y+h, x:x+w]
-        eyes = eye_cascade,detectMultiScale(roi_gray)
-        print "eye detection done"
+        roi_color = _frame[y:y+h, x:x+w]
+        eyes = eye_cascade.detectMultiScale(roi_gray)
+        print "#eyes:", len(eyes)
         for (ex,ey,ew,eh) in eyes:
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
+
+    cv2.imshow('Face-eyes', _frame)
 
 # k = 1048678
 # print chr(k & 255)
