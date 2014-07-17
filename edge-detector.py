@@ -10,10 +10,9 @@ import time
 def get_properties(cap):
     width = cap.get(cv.CV_CAP_PROP_FRAME_WIDTH) # 3
     height = cap.get(cv.CV_CAP_PROP_FRAME_HEIGHT) # 4
-    fps = cap.get(cv.CV_CAP_PROP_FPS) # 5
-    rgb = cap.get(cv.CV_CAP_PROP_CONVERT_RGB) # 16
-    print "properties:", width, "x", height, "at", fps, "fps"
-    print "should convert to RGB:", rgb
+    #fps = cap.get(cv.CV_CAP_PROP_FPS) # 5
+    #rgb = cap.get(cv.CV_CAP_PROP_CONVERT_RGB) # 16
+    print "properties:", width, "x", height#, "at", fps, "fps"
 
 def trackbar_cb(arg):
     # global edges
